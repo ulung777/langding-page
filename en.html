@@ -4,55 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Landing Page</title>
+    <title>Ruby Kiwi Landing Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <nav>
+        <div class="logo">Ruby Kiwi</div>
         <ul>
             <li><a href="index.html">Korean</a></li>
             <li><a href="en.html">English</a></li>
-            <li>Home</li>
-            <li>Product</li>
-            <li>Story</li>
-            <li>Contact</li>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#story">Story</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
-        <h1>Product Name</h1>
-        <p>
-            Product Description: Compared to regular green kiwi, it contains higher levels of antioxidants and vitamins,
-            offering significant functional benefits.
-        </p>
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <span class="badge">Premium Fruit</span>
+            <h1>Sweet and Fresh<br>Premium Ruby Kiwi</h1>
+            <p>Meet Ruby Kiwi, a healthy fruit with red flesh, fresh flavor, and soft texture.</p>
+            <a href="#product" class="hero-btn">View Product</a>
+        </div>
 
-        <img src="product.png" alt="Product Image" width="300">
+        <div class="hero-image-box">
+            <img src="kiwi.png" alt="Ruby Kiwi image" class="hero-img">
+        </div>
+    </section>
+
+    <section class="product" id="product">
+        <h2>Ruby Kiwi</h2>
+        <p>Ruby Kiwi is a premium fruit with bright red flesh, smooth texture, and rich nutrition.</p>
     </section>
 
     <section class="features">
-        <div>
-            <h3>🍇 Antioxidants</h3>
-            <p>Rich in anthocyanins → Helps reduce aging and boosts immunity</p>
+        <div class="feature-card">
+            <div class="icon">🍓</div>
+            <h3>Sweet and Fresh</h3>
+            <p>It offers a special taste with a balance of sweetness and freshness.</p>
         </div>
-        <div>
-            <h3>🍊 Vitamin C</h3>
-            <p>High content → Supports skin elasticity and reduces fatigue</p>
+
+        <div class="feature-card">
+            <div class="icon">🥝</div>
+            <h3>Rich Nutrition</h3>
+            <p>It is rich in vitamins and dietary fiber, making it a healthy snack.</p>
         </div>
-        <div>
-            <h3>🍖 Digestion</h3>
-            <p>Contains actinidin → Helps break down proteins</p>
-        </div>
-        <div>
-            <h3>🌿 Gut Health</h3>
-            <p>Dietary fiber → Improves digestion and bowel movement</p>
-        </div>
-        <div>
-            <h3>⚖️ Diet</h3>
-            <p>Low calorie → High satiety efficiency</p>
+
+        <div class="feature-card">
+            <div class="icon">✨</div>
+            <h3>Premium Quality</h3>
+            <p>Only carefully selected Ruby Kiwis are provided fresh.</p>
         </div>
     </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact</h2>
+        <p>For product purchases or inquiries, please contact us by email.</p>
+        <a href="mailto:example@email.com" class="contact-btn">Send Email</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Ruby Kiwi. All Rights Reserved.</p>
+    </footer>
 
 </body>
 
