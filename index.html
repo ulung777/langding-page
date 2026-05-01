@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Protein Shake</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0d12;
+            --text-main: #f8f9fa;
+            --text-muted: #a0aab2;
+            --accent-primary: #00f2fe;
+            --accent-secondary: #4facfe;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 80vh;
+            gap: 40px;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(90deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff, #a0aab2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            word-break: keep-all;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+            word-break: keep-all;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 20px 50px rgba(0, 242, 254, 0.15);
+            border: 1px solid var(--card-border);
+            z-index: 2;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            filter: blur(100px);
+            opacity: 0.2;
+            z-index: 1;
+            border-radius: 50%;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            animation: fadeUp 1s ease-out 0.3s both;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            margin-top: 80px;
+            padding: 60px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.05));
+            border-radius: 30px;
+            border: 1px solid var(--card-border);
+            animation: fadeUp 1s ease-out 0.6s both;
+        }
+
+        .guide-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .guide-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-item h4 {
+            color: var(--accent-primary);
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-item h4::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-primary);
+            border-radius: 50%;
+        }
+
+        .guide-item p {
+            color: var(--text-muted);
+            font-size: 0.95em;
+            padding-left: 18px;
+        }
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0 40px 0;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: var(--accent-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                margin-top: 40px;
+            }
+
+            .hero h1 {
+                font-size: 3em;
+            }
+
+            .hero-image img {
+                width: 80%;
+            }
+
+            .guide-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <a href="#" class="logo">Pro<span>Shake</span></a>
+            <div class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#features">Features</a>
+                <a href="#guide">How to Consume</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <div class="tag">PREMIUM NUTRITION</div>
+                <h1>Elevate Your<br><span>Performance</span></h1>
+                <p>단백질 쉐이크는 단순한 보충제가 아닙니다. 바쁜 일상 속에서 근육 성장과 회복을 돕는 가장 효율적이고 완벽한 영양 솔루션입니다.</p>
+            </div>
+            <div class="hero-image">
+                <img src="C:\Users\chlwo\.gemini\antigravity\brain\01a12fa9-8641-4edc-a537-b8a1f6e33527\protein_shake_modern_1777655999704.png"
+                    alt="Premium Protein Shake">
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Fast Absorption</h3>
+                <p>WHEY(유청) 단백질은 체내 흡수가 매우 빨라, 운동 직후 손상된 근육 조직을 즉각적으로 회복시키는 데 탁월합니다.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⏱️</div>
+                <h3>Easy & Quick</h3>
+                <p>바쁜 현대인을 위해, 언제 어디서나 텀블러와 물만 있으면 단 1분 만에 하루 필수 단백질을 섭취할 수 있습니다.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Weight Control</h3>
+                <p>적절한 포만감을 주어 식사 대용이나 건강한 간식으로 섭취 시, 체지방 감량 및 체중 관리에 효과적입니다.</p>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide-section">
+            <h2>How to Consume</h2>
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <h4>최적의 섭취 타이밍</h4>
+                    <p>운동 직후 30분 이내(기회의 창) 섭취가 가장 효율적입니다. 기상 직후나 취침 전에도 목적에 맞게 활용하세요.</p>
+                </div>
+                <div class="guide-item">
+                    <h4>적정 섭취량</h4>
+                    <p>1회 섭취 시 우리 몸이 흡수할 수 있는 양은 약 20~30g입니다. 제품 권장 스쿱을 확인하세요.</p>
+                </div>
+                <div class="guide-item">
+                    <h4>주의사항</h4>
+                    <p>단백질 과다 섭취는 간이나 신장에 부담을 줄 수 있습니다. 일일 총 섭취량(체중 1kg당 1~2g)을 꼭 지켜주세요.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
